@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
+
+import ItemForm  from './components/ItemForm';
+import ItemsList from './components/ItemsList';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component {
+  state = {
+    items: []
+  };
 
-export default App;
+  addItem = (item) => {
+    this.setState({items: [...this.state.items, item]});
+  };
+
+  deleteItem = (item) => {
+    this.setState({items: [...this.state.items.filter(i => i !== item)]});
+  };
+
+  render() {
+    return (
+      <Fragment>
+        <ItemForm onSubmit={this.addItem} />
+        <ItemsList items={this.state.items} onDelete={this.deleteItem} />
+      </Fragment>
+    );
+  }
+}
