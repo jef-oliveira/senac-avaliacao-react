@@ -44,7 +44,9 @@ export default class ItemForm extends Component {
         <label htmlFor="itemCategory">Categoria</label>
         <select id="itemCategory" value={itemCategory} onChange={this.handleChange}>
           <option value="">Selecione...</option>
-          {itemCategories.map(itemCategory => <option value={itemCategory.id}>{itemCategory.name}</option>)}
+          {itemCategories.map(itemCategory => {
+            return <option key={itemCategory.id} value={itemCategory.id}>{itemCategory.name}</option>
+          })}
         </select>
 
         <label htmlFor="itemName">Item</label> 

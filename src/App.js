@@ -1,29 +1,21 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component }               from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ItemForm  from './components/ItemForm';
-import ItemsList from './components/ItemsList';
-
-import './App.css';
+import Login    from './pages/Login';
+import Register from './pages/Register';
+import Home     from './pages/Home';
 
 export default class App extends Component {
-  state = {
-    items: []
-  };
-
-  addItem = (item) => {
-    this.setState({items: [...this.state.items, item]});
-  };
-
-  deleteItem = (item) => {
-    this.setState({items: [...this.state.items.filter(i => i !== item)]});
-  };
 
   render() {
     return (
-      <Fragment>
-        <ItemForm onSubmit={this.addItem} />
-        <ItemsList items={this.state.items} onDelete={this.deleteItem} />
-      </Fragment>
+      <Router>
+        <div>
+          <Route path="/" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/home" component={Home} />
+        </div>
+      </Router>
     );
   }
 }
