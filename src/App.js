@@ -10,11 +10,9 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route path="/" exact component={Login} />
-          <Route path="/register" exact component={Register} />
-          <Route path="/home" component={Home} />
-        </div>
+        <Route path="/" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/home" component={Home} />
       </Router>
     );
   }

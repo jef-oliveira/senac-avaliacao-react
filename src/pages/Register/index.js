@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect, Link }   from 'react-router-dom';
-import AuthForm  from '../../components/AuthForm';
+
+import Card     from '../../components/Card';
+import AuthForm from '../../components/AuthForm';
+
+import './register.css';
 
 export default class Register extends Component {
   state = {
@@ -20,9 +24,11 @@ export default class Register extends Component {
       );
 
     return (
-      <div>
-        <AuthForm onSubmit={this.handleSubmit} submitLabel="Registar" />
-        <Link to="/">cancelar</Link>
+      <div className="register-page">
+        <Card className="register-card">
+          <AuthForm onSubmit={this.handleSubmit} submitLabel="Registar" />
+          <Link to="/" className="bottom-link">cancelar</Link>
+        </Card>
       </div>
     );
   }

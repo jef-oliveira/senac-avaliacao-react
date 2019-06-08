@@ -1,0 +1,22 @@
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-container label, .auth-form-container input {
+  display: block;
+}
+
+.auth-form-container label {
+  font-size: 12;
+  color: #CCC;
+}
+
+.auth-form-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: #CCC solid 1px;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: #FFF;
+}

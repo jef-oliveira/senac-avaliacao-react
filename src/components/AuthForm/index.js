@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import ActionButton from '../ActionButton';
+
+import './form.css';
+
 export default class LoginForm extends Component {
   static defaultProps = {
     submitLabel: 'Submit',
@@ -33,18 +37,14 @@ export default class LoginForm extends Component {
     const isDisabled = !username.length|| !password.length;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label> 
-          <input id="username" type="text" placeholder="Informe seu username" value={username} onChange={this.handleChange} />
-        </div>
-
-        <div>
-          <label htmlFor="password">Password</label> 
-          <input id="password" type="password" placeholder="Informe seu password" value={password} onChange={this.handleChange} />
-        </div>
-
-        <button disabled={isDisabled}>{submitLabel}</button>
+      <form className="auth-form-container" onSubmit={this.handleSubmit}>
+        <label htmlFor="username">Username</label> 
+        <input id="username" type="text" placeholder="Informe seu username" value={username} onChange={this.handleChange} />
+        
+        <label htmlFor="password">Password</label> 
+        <input id="password" type="password" placeholder="Informe seu password" value={password} onChange={this.handleChange} />
+        
+        <ActionButton disabled={isDisabled}>{submitLabel}</ActionButton>
       </form>
     );
   }

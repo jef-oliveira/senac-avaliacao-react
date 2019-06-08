@@ -1,0 +1,21 @@
+.items-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-list-item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.item-list-item-container.divider {
+  border-bottom: #CCC solid 1px;
+}
+
+.item-list-item-name {
+  font-size: 14px;
+  color: #333;
+}

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import ActionButton from '../ActionButton';
+
+import './form.css';
+
 export default class ItemForm extends Component {
   state = {
     itemCategories: [],
@@ -40,7 +44,7 @@ export default class ItemForm extends Component {
     const { itemCategories, itemCategory, itemName } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="item-form-container" onSubmit={this.handleSubmit}>
         <label htmlFor="itemCategory">Categoria</label>
         <select id="itemCategory" value={itemCategory} onChange={this.handleChange}>
           <option value="">Selecione...</option>
@@ -52,7 +56,7 @@ export default class ItemForm extends Component {
         <label htmlFor="itemName">Item</label> 
         <input id="itemName" type="text" value={itemName} onChange={this.handleChange} />
 
-        <button disabled={!itemCategory.length|| !itemName.length}>OK</button>
+        <ActionButton disabled={!itemCategory.length|| !itemName.length}>OK</ActionButton>
       </form>
     );
   }
